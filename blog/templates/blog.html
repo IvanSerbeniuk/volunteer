@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>HELPZ - Free Charity Website Template</title>
+        <title>Blog</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
@@ -24,6 +24,22 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <!--Google Font -->
         <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">   <!--Google Font -->
 
+        <!-- <style>
+            .text-eclipse {
+                position: relative;
+              }
+              
+              .text-eclipse::after {
+                content: "...";
+                position: relative;
+                top: 0;
+                right: 0;
+                width: 80%; /* 1 */
+                height: 100%;
+                background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgb(243,246,255) 100%);
+              }
+
+        </style> -->
 
         <!-- Template Stylesheet -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -109,9 +125,10 @@
         </div>
         <!-- Page Header End -->
         
-        
+        {% block content %}
+        {% endblock content %}
         <!-- Blog Start -->
-        <div class="blog">
+        <!-- <div class="blog">
             <div class="container">
                 <div class="section-header text-center">
                     <p>Our Blog</p>
@@ -186,40 +203,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{% static 'img/1blog-2.jpg' %}" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="{% static 'img/1blog-3.jpg' %}" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -233,7 +216,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
         <!-- Blog End -->
 
 
