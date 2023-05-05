@@ -13,7 +13,7 @@
                     <div class="col-lg-4">
                         <div class="blog-item">
                             <div class="blog-img">
-                                <img src="{% static 'img/1blog-1.jpg' %}" alt="Image">
+                                <img src="{{post.image.url}}" alt="Image">
                             </div>
                             <div class="blog-text">
                                 <h3><a href="{% url 'post_detail' post.slug  %}">{{ post.title }}</a></h3>
