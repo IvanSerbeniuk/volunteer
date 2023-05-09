@@ -1682,11 +1682,25 @@ a:focus {
 .single .post-item .post-img {
     width: 100%;
     max-width: 80px;
+    position: relative;
+    padding-bottom: 26%;
 }
 
 .single .post-item .post-img img {
     width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
 }
+/* .single .post-item .post-img {
+    width: 100%;
+    max-width: 80px;
+}
+
+.single .post-item .post-img img {
+    width: 100%;
+} */
 
 .single .post-item .post-text {
     padding-left: 15px;
