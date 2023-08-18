@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-# from .views import donation
+from .views import donation
 
 urlpatterns = [
     # path("sldf", views.index, name='index'),
