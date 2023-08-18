@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
 import os
 from pathlib import Path
 
@@ -39,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'home',   # + add smth
+    'home',   
     'taggit',
+    'liqpay',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +135,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+LIQPAY_PUBLIC_KEY = 'sandbox_i97618994403' #config('YOUR_PUBLIC_KEY')
+LIQPAY_PRIVATE_KEY = 'sandbox_997Trh625acVmzO9c2Syd5EGA7D31eTQDgfYuufG' #config('YOUR_PRIVATE_KEY')
+LIQPAY_SANDBOX_MODE = True  # Установите в True для тестирования в режиме песочницы (sandbox mode)
+'sandbox_997Trh625acVmzO9c2Syd5EGA7D31eTQDgfYuufG'
+'sandbox_i97618994403'
