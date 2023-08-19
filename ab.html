@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Перенаправление в зависимости от выбора</title>
+</head>
+<body>
+    <form id="choiceForm">
+        <input type="radio" name="choice" value="option1"> Вариант 1<br>
+        <input type="radio" name="choice" value="option2"> Вариант 2<br>
+        <input type="radio" name="choice" value="option3"> Вариант 3<br>
+        <input type="submit" value="Выбрать">
+    </form>
+
+    <script>
+        document.getElementById('choiceForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Остановить стандартное поведение формы
+
+            // Получить выбранное значение
+            var selectedOption = document.querySelector('input[name="choice"]:checked');
+
+            if (selectedOption) {
+                // Изменить адрес перенаправления в зависимости от выбора кнопки
+                switch (selectedOption.value) {
+                    case 'option1':
+                        window.location.href = 'https://example.com/page1';
+                        break;
+                    case 'option2':
+                        window.location.href = 'https://example.com/page2';
+                        break;
+                    case 'option3':
+                        window.location.href = 'https://example.com/page3';
+                        break;
+                    default:
+                        // По умолчанию перенаправление можно настроить на другую страницу
+                        window.location.href = 'https://example.com/default-page';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

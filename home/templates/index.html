@@ -24,7 +24,7 @@
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
     </head>
 
-    <body>
+    <>
         <!-- Top Bar Start -->
         <div class="top-bar d-none d-md-block">
             <div class="container-fluid">
@@ -505,7 +505,7 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="donate-form">
-                            <form>
+                            <form id="choiceForm">
                                 <div class="control-group">
                                     <input type="text" class="form-control" placeholder="Name" required="required" />
                                 </div>
@@ -514,17 +514,19 @@
                                 </div>
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-custom active">
-                                        <input type="radio" name="options" checked> $10
+                                        <input type="radio" name="options" checked value="10">
+                                        $10
                                     </label>
                                     <label class="btn btn-custom">
-                                        <input type="radio" name="options"> $20
+                                        <input type="radio" name="options" value="20">
+                                        $20
                                     </label>
                                     <label class="btn btn-custom">
-                                        <input type="radio" name="options"> $30
+                                        <input type="radio" name="options" value="30"> $30
                                     </label>
                                 </div>
                                 <div>
-                                    <button class="btn btn-custom" type="submit">Donate Now</button>
+                                    <button class="btn btn-custom" type="submit" value>Donate Now</button>
                                 </div>
                             </form>
                         </div>
@@ -532,6 +534,32 @@
                 </div>
             </div>
         </div>
+        <script>
+            document.getElementById('choiceForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Остановить стандартное поведение формы
+    
+                // Получить выбранное значение
+                var selectedOption = document.querySelector('input[name="options"]:checked');
+    
+                if (selectedOption) {
+                    // Изменить адрес перенаправления в зависимости от выбора кнопки
+                    switch (selectedOption.value) {
+                        case '10':
+                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIxMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQv9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=Q61ZPWZRJjQi7j3pIhIdIz1GCs8=';
+                            break;
+                        case '20':
+                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIyMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstGD0LLQsNC90L3RjyIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k5NzYxODk5NDQwMyIsImxhbmd1YWdlIjoidWsifQ==&signature=7Af9fjtj04WElURRWSzoR81i21U=';
+                            break;
+                        case '30':
+                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIzMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=qLKWdo8qnBfdA3ha3hd7dfrw2Xw=';
+                            break;
+                        default:
+                            // По умолчанию перенаправление можно настроить на другую страницу
+                            window.location.href = 'https://example.com/default-page';
+                    }
+                }
+            });
+        </script>
         <!-- Donate End -->
         
         
@@ -918,5 +946,7 @@
 
         <!-- Template Javascript -->
         <script src="{% static 'js/main.js' %}"></script>
+
+        
     </body>
 </html>
