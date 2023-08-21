@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'home',   
     'taggit',
     'liqpay',
-    'UpcomingEvents',
 ]
 
 MIDDLEWARE = [

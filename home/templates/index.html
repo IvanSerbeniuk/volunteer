@@ -431,8 +431,8 @@
             </div>
         </div> -->
         <!-- Causes End -->
-        
-                <!-- Event Start -->
+       
+        <!-- Event Start -->
         <div class="event">
             <div class="container">
                 <div class="section-header text-center">
@@ -440,44 +440,27 @@
                     <h2>Be ready for our upcoming charity events</h2>
                 </div>
                 <div class="row">
+                    {% for event in events %}
                     <div class="col-lg-6">
                         <div class="event-item">
-                            <img src="{% static 'img/11event-1.JPG' %}" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>Чт, 10.03</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 10:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Градоначальницкая</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Мастер класс по рисованию</h3>
-                                    <p>
-                                        Как же это классно и нужно. Порисуте, сделаете классные картины, афигенная атмосфера и компания
-                                    </p>
-                                    <a class="btn btn-custom" href="">Присоединиться</a>
+                                <img src="{{ event.image.url}}" alt="Image">
+                                <div class="event-content">
+                                    <div class="event-meta">
+                                        <p><i class="fa fa-calendar-alt"></i>{{ event.date }}</p>
+                                        <p><i class="far fa-clock"></i>{{ event.time|time:'H:i' }}</p>
+                                        <p><i class="fa fa-map-marker-alt"></i>{{ event.place }}</p>
+                                    </div>
+                                    <div class="event-text">
+                                        <h3>{{ event.title }}</h3>
+                                        <p>
+                                            {{ event.description }}
+                                        </p>
+                                        <!-- <a class="btn btn-custom" href="">Присоединиться</a> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="{% static 'img/1event-2.jpg' %}" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>До Ср, 22.04</p>
-                                    <p><i class="far fa-clock"></i>8:00 - 11:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Градоначальницкая</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Собираем мягкие игрушки для детей из интерната</h3>
-                                    <p>
-                                        Детям-сиротам очень тяжело и одиноко. Подарите им частичку радости мягким другом
-                                    </p>
-                                    <a class="btn btn-custom" href="">Присоединиться</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        {% endfor %}
                 </div>
             </div>
         </div>
@@ -555,7 +538,7 @@
                             break;
                         default:
                             // По умолчанию перенаправление можно настроить на другую страницу
-                            window.location.href = 'https://example.com/default-page';
+                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIxMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQv9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=Q61ZPWZRJjQi7j3pIhIdIz1GCs8=';//
                     }
                 }
             });
