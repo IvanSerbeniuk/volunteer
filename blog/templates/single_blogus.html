@@ -170,7 +170,9 @@
                                                 <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
                                                 <div class="post-meta">
                                                     <p>By <a href="">{{ post.author }}</a></p>
+                                                    {% if post.category %}
                                                     <p>In <a href="">{{ post.category }}</a></p>
+                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>

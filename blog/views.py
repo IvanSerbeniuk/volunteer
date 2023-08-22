@@ -6,12 +6,6 @@ from .models import Post
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'blogusy.html'
-    context_object_name = 'posts'  # Имя переменной, которая будет доступна в шаблоне
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['recent_posts'] = Post.objects.filter(status=1).order_by('-created_on')[:5]
-    #     return context
 
 class PostDetail(generic.DetailView):
     model = Post
