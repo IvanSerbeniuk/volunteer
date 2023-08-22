@@ -182,7 +182,9 @@
 
                             <div class="sidebar-widget">
                                 <div class="image-widget">
-                                    <a href="#"><img src="{% static 'img/1blog-2.jpg' %}" alt="Image"></a>
+                                    {% for relatedpost_sideimage in post.tags.similar_objects|slice:"1" %}
+                                        <a href="{% url 'post_detail' relatedpost_sideimage.slug  %}"><img src="{{ relatedpost_sideimage.image.url }}" alt="Image"></a>
+                                    {% endfor %}
                                 </div>
                             </div>
 
