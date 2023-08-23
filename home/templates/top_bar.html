@@ -6,7 +6,7 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>+123 456 7890</p>
+                                <p>+123 456 7777</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
@@ -41,11 +41,11 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="about" class="nav-item nav-link">About</a>
-                        <!-- <a href="causes.html" class="nav-item nav-link">Causes</a> -->
-                        <a href="event.html" class="nav-item nav-link">Events</a>
-                        <a href="blog" class="nav-item nav-link{% if is_blog_page %} disabled{% endif %}">Blog</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{% url 'home' %}" class="nav-item nav-link{% if is_home_page %} disabled{% endif %}">Home</a>
+                        <a href="{% url 'team' %}" class="nav-item nav-link{% if is_team_page %} disabled{% endif %}">Team</a>
+                        <!-- <a href="event.html" class="nav-item nav-link">Events</a> -->
+                        <a href="{% url 'blog' %}" class="nav-item nav-link{% if is_blog_page %} disabled{% endif %}">Blog</a>
+                        <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                     </div>
                 </div>
             </div>
