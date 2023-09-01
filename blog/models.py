@@ -8,6 +8,15 @@ STATUS = (
     (1,"Publish")
 )
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    bio = models.TextField()
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return str(self.user)
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)

@@ -36,10 +36,6 @@
                     <div class="col-12">
                         <h2>Detail Page</h2>
                     </div>
-                    <div class="col-12">
-                        <a href="">Home</a>
-                        <a href="">Detail</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -65,12 +61,12 @@
                         </div>
                         <div class="single-bio">
                             <div class="single-bio-img">
-                                <img src="{% static 'img/user.jpg' %}" />
+                                <img src="{{ user.profile.image.url }}" />
                             </div>
                             <div class="single-bio-text">
                                 <h3>{{ post.author }}</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst.
+                                    {{ user.profile.bio }}
                                 </p>
                             </div>
                         </div>
