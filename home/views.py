@@ -14,9 +14,6 @@ def home(request):
     is_home_page = True  
     return render(request, 'index.html', {'events': events, 'recent_posts': recent_posts, 'is_home_page':is_home_page}, )#{'recent_posts': recent_posts}
 
-def successMsg(request, args):
-    amount = args
-    return render(request, 'templates/donation_success.html', {'amount': amount})
 
 
 def team(request):

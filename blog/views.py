@@ -24,3 +24,10 @@ class RecentPosts(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')[:5]
     template_name = 'recent_posts.html'
     context_object_name = 'recent_posts'
+
+
+def search_posts(request):
+    query = request.GET.get('q')  
+    results = Post.objects.filter(title__icontains=query)  
+    return render(request, 'search_results.html', {'results': results, 'query': query})
+    # return render(request, 'search_results.html', {})

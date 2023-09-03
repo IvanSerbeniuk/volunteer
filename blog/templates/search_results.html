@@ -1,0 +1,20 @@
+{% extends 'single_blogus.html' %}
+{% block content %}
+    <!-- <h1>Результаты поиска</h1> -->
+
+    <!-- <p>Вы искали: "{{ query }}"</p> -->
+
+    {% if results %}
+        <ul>
+            {% for post in results %}
+                <li>
+                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+                    <!-- <p>{{ post.content }}</p> -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ничего не найдено.</p>
+    {% endif %}
+{% endblock %}
+<p>Ничего не найдено.</p>
