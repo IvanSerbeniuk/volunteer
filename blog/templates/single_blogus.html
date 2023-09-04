@@ -23,6 +23,7 @@
 
         <!-- Template Stylesheet -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
     </head>
 
     <body>
@@ -96,14 +97,10 @@
                         <div class="sidebar">
                             <div class="sidebar-widget">
                                 <div class="search-widget">
-                                    <form class="search-form" action="{% url 'search_posts' %}" method="get">
+                                    <form action="{% url 'search_posts' %}">
                                         <input class="form-control" type="text" name="q" placeholder="Search Keyword">
                                         <button class="btn"><i class="fa fa-search"></i></button>
                                     </form>
-                                    <div class="search-results">
-                                        {% block content %}
-                                        {% endblock %}
-                                    </div>
                                 </div>
                             </div>
 
