@@ -70,15 +70,23 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       
-      - name: Docker Scout
-        id: docker-scout
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: docker/scout-action@v0.18.1
-        with:
-          command: cves,recommendations
-          to-latest: true
-          ignore-base: true
-          ignore-unchanged: true
-          write-comment: true
-          github-token: ${{ secrets.GITHUB_TOKEN }} # to be able to write the comment
+      # - name: Docker Scout
+      #   id: docker-scout
+      #   if: ${{ github.event_name == 'pull_request' }}
+      #   uses: docker/scout-action@v0.18.1
+      #   with:
+      #     command: cves,recommendations
+      #     to-latest: true
+      #     ignore-base: true
+      #     ignore-unchanged: true
+      #     write-comment: true
+      #     github-token: ${{ secrets.GITHUB_TOKEN }} # to be able to write the comment
 
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ steps.meta.outputs.tags }}
+          format: 'table'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
