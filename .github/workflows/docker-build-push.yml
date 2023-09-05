@@ -10,8 +10,8 @@ on:
     
 env:
   # Use docker.io for Docker Hub if empty
-  REGISTRY: serbenyuk
-  IMAGE_NAME: volunteer
+  REGISTRY: docker.io
+  IMAGE_NAME: serbenyuk
   SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
   # Use `latest` as the tag to compare to if empty, assuming that it's already pushed
   COMPARE_TAG: latest
