@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 
+import django
+from django.utils.encoding import smart_str
+django.utils.encoding.smart_text = smart_str
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,6 +49,7 @@ INSTALLED_APPS = [
     'home',   
     'taggit',
     'liqpay',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -149,5 +154,37 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LIQPAY_PUBLIC_KEY = 'sandbox_i97618994403' #config('YOUR_PUBLIC_KEY')
 LIQPAY_PRIVATE_KEY = 'sandbox_997Trh625acVmzO9c2Syd5EGA7D31eTQDgfYuufG' #config('YOUR_PRIVATE_KEY')
 LIQPAY_SANDBOX_MODE = True  # Установите в True для тестирования в режиме песочницы (sandbox mode)
-'sandbox_997Trh625acVmzO9c2Syd5EGA7D31eTQDgfYuufG'
-'sandbox_i97618994403'
+
+TINYMCE_JS_ROOT = os.path.join(BASE_DIR, '/mysite/static/tinymce')
+
+# TINYMCE_JS_URL = os.path.join(MEDIA_URL, "/mysite/static/tinymce/tinymce.min.js")
+
+TINYMCE_DEFAULT_CONFIG = {
+
+   'height': 360,
+   'width': 750,
+   'cleanup_on_startup': True,
+   'custom_undo_redo_levels': 20,
+   'selector': 'textarea',
+#    'theme': 'modern',
+   'plugins': '''
+   textcolor save link image media preview codesample contextmenu
+   table code lists fullscreen insertdatetime nonbreaking
+   contextmenu directionality searchreplace wordcount visualblocks
+   visualchars code fullscreen autolink lists charmap print hr
+   anchor pagebreak
+   ''',
+   'toolbar1': '''
+   fullscreen preview bold italic underline | fontselect,
+   fontsizeselect | forecolor backcolor | alignleft alignright |
+   aligncenter alignjustify | indent outdent | bullist numlist table |
+   | link image media | codesample |
+   ''',
+   'toolbar2': '''
+   visualblocks visualchars |
+   charmap hr pagebreak nonbreaking anchor | code |
+   ''',
+   'contextmenu': 'formats | link image',
+   'menubar': True,
+   'statusbar': True,
+   }
