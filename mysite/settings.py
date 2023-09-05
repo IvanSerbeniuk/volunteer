@@ -20,7 +20,11 @@ django.utils.encoding.smart_text = smart_str
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+FILEBROWSER_DIRECTORY = ''
+FILEBROWSER_MEDIA_ROOT = MEDIA_ROOT
+FILEBROWSER_MEDIA_URL = MEDIA_URL
 
 
 
@@ -50,6 +54,7 @@ INSTALLED_APPS = [
     'taggit',
     'liqpay',
     'tinymce',
+    'filebrowser',
 ]
 
 MIDDLEWARE = [
@@ -157,6 +162,8 @@ LIQPAY_SANDBOX_MODE = True  # Установите в True для тестиро
 
 TINYMCE_JS_ROOT = os.path.join(BASE_DIR, '/mysite/static/tinymce')
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
+
 # TINYMCE_JS_URL = os.path.join(MEDIA_URL, "/mysite/static/tinymce/tinymce.min.js")
 
 TINYMCE_DEFAULT_CONFIG = {
@@ -184,6 +191,7 @@ TINYMCE_DEFAULT_CONFIG = {
    visualblocks visualchars |
    charmap hr pagebreak nonbreaking anchor | code |
    ''',
+   "images_upload_url": "upload_image",
    'contextmenu': 'formats | link image',
    'menubar': True,
    'statusbar': True,
