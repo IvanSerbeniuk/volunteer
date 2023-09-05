@@ -1,6 +1,14 @@
+asgiref==3.7.2
+backports.zoneinfo==0.2.1;python_version<"3.9"
 certifi==2023.7.22
 charset-normalizer==3.2.0
+Django==4.2.5
+django-taggit==4.0.0
+gunicorn==21.2.0
 idna==3.4
 liqpay-python==1.0
+packaging==23.1
 requests==2.31.0
+sqlparse==0.4.4
+typing_extensions==4.7.1
 urllib3==2.0.4
