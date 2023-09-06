@@ -1,0 +1,19 @@
+[Wed Sep 06 2023 15:51:48 GMT+0200 (Central European Summer Time)] INFO Requests: 0 (0%), requests per second: 0, mean latency: 0 ms
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Target URL:          http://localhost:8000/
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Max requests:        100
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Concurrency level:   1
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Agent:               keepalive
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Completed requests:  100
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Total errors:        0
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Total time:          0.841739875 s
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Requests per second: 119
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Mean latency:        8.4 ms
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO Percentage of the requests served within a certain time
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO   50%      8 ms
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO   90%      8 ms
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO   95%      9 ms
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO   99%      32 ms
+[Wed Sep 06 2023 15:51:49 GMT+0200 (Central European Summer Time)] INFO  100%      32 ms (longest request)
