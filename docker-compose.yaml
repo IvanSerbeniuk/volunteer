@@ -12,12 +12,17 @@ services:
       - "8000:8000"
     depends_on:
       - postgres
+      - redis  
 
   redis:
-    image: redis
+    image: redis:7.2.0-alpine3.18
     container_name: redis
     ports:
       - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning  
+    hostname: redis    
+    volumes:
+      - redisdata:/data
 
   postgres:
     image: postgres:14
@@ -32,3 +37,4 @@ services:
 
 volumes:
   postgres_data:
+  redisdata:

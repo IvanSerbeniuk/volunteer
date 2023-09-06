@@ -1,0 +1,23 @@
+[Wed Sep 06 2023 15:36:27 GMT+0200 (Central European Summer Time)] INFO Requests: 0 (0%), requests per second: 0, mean latency: 0 ms
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Target URL:          http://localhost:8000/
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Max requests:        100
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Concurrency level:   1
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Agent:               keepalive
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Completed requests:  100
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Total errors:        100
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Total time:          1.1885994579999999 s
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Requests per second: 84
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Mean latency:        11.8 ms
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO Percentage of the requests served within a certain time
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO   50%      11 ms
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO   90%      12 ms
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO   95%      14 ms
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO   99%      24 ms
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO  100%      24 ms (longest request)
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO  100%      24 ms (longest request)
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO 
+[Wed Sep 06 2023 15:36:29 GMT+0200 (Central European Summer Time)] INFO   400:   100 errors
