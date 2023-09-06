@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  volunteer:
+    build: .
+    container_name: volunteer
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - '6379:6379'
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
