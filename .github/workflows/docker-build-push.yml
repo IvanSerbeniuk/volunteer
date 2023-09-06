@@ -77,7 +77,7 @@ jobs:
         with:
           command: cves
           image: ${{ steps.meta.outputs.tags }}
-          sarif-file: sarif.output.json
+          sarif-file: results.sarif
           summary: true
       
       - name: Upload SARIF result
@@ -85,7 +85,7 @@ jobs:
         if: ${{ github.event_name != 'pull_request_target' }}
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: sarif.output.json
+          sarif_file: results.sarif
 
       # - name: Run Trivy vulnerability scanner
       #   uses: aquasecurity/trivy-action@master
