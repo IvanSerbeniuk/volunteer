@@ -12,11 +12,20 @@ services:
     volumes:
       - static_volume:/app/static
       - media_volume:/app/media
-      - ./docker/nginx/development:/etc/nginx/conf.d
+      - ./docker/nginx/production:/etc/nginx/conf.d
+      - ./docker/nginx/certbot/conf:/etc/letsencrypt
+      - ./docker/nginx/certbot/www:/var/www/certbot
     depends_on: 
       - volunteer
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - ./docker/nginx/certbot/conf:/etc/letsencrypt
+      - ./docker/nginx/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"       
   volunteer:
-    image: serbenyuk/volunteer:v0.1.4
+    image: serbenyuk/volunteer:v0.1.5
     container_name: volunteer
     restart: unless-stopped
     env_file: .env
