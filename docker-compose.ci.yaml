@@ -16,7 +16,7 @@ services:
     depends_on: 
       - volunteer
   volunteer:
-    build: .
+    image: serbenyuk/volunteer:v0.1.4
     container_name: volunteer
     restart: unless-stopped
     env_file: .env
