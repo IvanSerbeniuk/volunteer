@@ -1,3 +1,4 @@
+[![volunteer](https://github.com/IvanSerbeniuk/volunteer/actions/workflows/docker-build-push.yml/badge.svg)](https://github.com/IvanSerbeniuk/volunteer/actions/workflows/docker-build-push.yml)
 
 
 loadtest -n 100 -k  http://localhost:8000/
