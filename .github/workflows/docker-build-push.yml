@@ -97,5 +97,5 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@3.71.152.186 whoami
           scp -o StrictHostKeyChecking=no -r ./docker-compose.yaml ubuntu@3.71.152.186:/home/ubuntu/app
-          ssh -o StrictHostKeyChecking=no ubuntu@3.71.152.186 'docker-compose -f docker-compose.yaml up --build -d'
+          ssh -o StrictHostKeyChecking=no ubuntu@3.71.152.186 'docker-compose -f /home/ubuntu/app/docker-compose.yaml up --build -d'
 
