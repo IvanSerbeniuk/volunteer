@@ -87,7 +87,11 @@ jobs:
         run: |
           echo "${{ secrets.AWS_PRIVATE_KEY }}" > key.pem
           chmod 600 key.pem
-      - name: Pull Docker image
+      - name: whoami
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@3.71.152.186 whoami
+      - name: Update docker-compose
+        run: |
+          scp -o StrictHostKeyChecking=no -r ./.env ./docker-compose.yaml  -i key.pem ubuntu@3.71.152.186:/home/ubuntu/app
+          ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@3.71.152.186 'docker-compose -f docker-compose.yaml up --build -d'
           
