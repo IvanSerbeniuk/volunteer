@@ -87,4 +87,7 @@ jobs:
         run: |
           echo "${{ secrets.AWS_PRIVATE_KEY }}" > key.pem
           chmod 600 key.pem
+      - name: Pull Docker image
+        run: |
+          ssh -o StrictHostKeyChecking=no -i key.pem ubuntu@3.71.152.186 whoami
           
