@@ -11,17 +11,18 @@ STATUS = (
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
     bio = models.TextField()
     image = models.ImageField(upload_to='images/')
 
     def __str__(self):
-        return str(self.user)
+        return str(self.name)
 
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
+    author = models.ForeignKey(Profile, on_delete= models.CASCADE,related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now= True)
     content = HTMLField()
     created_on = models.DateTimeField(auto_now_add=True)

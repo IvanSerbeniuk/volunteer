@@ -62,12 +62,12 @@
                         </div>
                         <div class="single-bio">
                             <div class="single-bio-img">
-                                <img src="{{ user.profile.image.url }}" />
+                                <img src="{{ post.author.image.url }}" />
                             </div>
                             <div class="single-bio-text">
-                                <h3>{{ post.author }}</h3>
+                                <h3>{{ post.author.name }}</h3>
                                 <p>
-                                    {{ user.profile.bio }}
+                                    {{ post.author.bio }}
                                 </p>
                             </div>
                         </div>
