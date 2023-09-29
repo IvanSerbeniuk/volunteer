@@ -105,21 +105,21 @@ jobs:
     - name: Setup test database
       run: |
         export CI
-        export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
+        export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost:5432/$POSTGRES_DB
         export SECRET_KEY=test-secret-key
         export DEBUG=1
       env:
         POSTGRES_DB: postgres
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
-        POSTGRES_HOST: 'postgres'
+        POSTGRES_HOST: 'localhost'
         POSTGRES_PORT: 5432
 
 
 
     - name: Run migrations
       run: |
-        export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
+        export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost:5432/$POSTGRES_DB
         export SECRET_KEY=test-secret-key
         export DEBUG=1
         export ALLOWED_HOSTS=localhost
