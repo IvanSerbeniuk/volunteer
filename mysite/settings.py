@@ -124,7 +124,7 @@ DATABASES = {
         'NAME': config('POSTGRES_DB','postgres'),
         'USER': config('POSTGRES_USER','postgres'),
         'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
-        'HOST': config('POSTGRES_HOST'),
+        'HOST': config('POSTGRES_HOST','localhost'),
         'PORT': config('POSTGRES_PORT', 5432)
      }
 }
