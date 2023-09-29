@@ -119,7 +119,7 @@ jobs:
 
     - name: Run migrations
       run: |
-        export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost:5432/$POSTGRES_DB
+        export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
         export SECRET_KEY=test-secret-key
         export DEBUG=1
         export ALLOWED_HOSTS=localhost
