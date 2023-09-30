@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.71.152.186','volunteer.dm
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -272,3 +273,27 @@ TINYMCE_DEFAULT_CONFIG = {
    'menubar': True,
    'statusbar': True,
    }
+
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Vidguk Admin",
+    "site_brand": "Vidguk Admin",
+    "site_logo": "/img/logo_v.jpg",
+    "login_logo": '/img/logo_v.jpg',
+    "welcome_sign": "Вітаю в Vidguk",
+    "topmenu_links": [
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+    ],
+    #  "usermenu_links": [
+    #     {"model": "auth.user"}
+    # ],   # Сделать личную статистику. Лично его написанные статьи
+    #  "icons": {
+    #     "auth": "fas fa-users-cog",
+    #     "auth.user": "fas fa-user",
+    #     "auth.Group": "fas fa-users",
+    # },
+    # "show_ui_builder": True,
+    # "language_chooser": True,
+}
