@@ -7,13 +7,34 @@
 
 <!-- Blog Start -->
         {% block content %}
+        <div class="blog">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Our Blog</p>
+                    <h2>Latest news & articles directly from our blog</h2>
+                </div>
+            </div>
+        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 offset-lg-8">
+                    <!-- <div class="col-lg-8 offset-lg-2"> -->
+                        <div class="sidebar">
+                            <div class="sidebar-widget">
+                                <div class="search-widget">
+                                    <form action="{% url 'search_posts' %}">
+                                        <input class="form-control" type="text" name="q" placeholder="Search Keyword">
+                                        <button class="btn"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% if results %}
             <div class="blog">
-                <div class="container">
-                    <div class="section-header text-center">
-                        <p>Our Blog</p>
-                        <h2>Latest news & articles directly from our blog</h2>
-                    </div>
+                <div class="container"> 
                     <div class="row">
                         {% for post in results %}
                         <div class="col-lg-4">
