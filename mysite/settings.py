@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'liqpay',
     'tinymce',
     'storages',
+    'ckeditor',
     'debug_toolbar',
 ]
 
@@ -173,6 +174,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 
 # # aws settings

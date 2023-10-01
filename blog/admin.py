@@ -9,9 +9,9 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
-    formfield_overrides = {
-        models.TextField: {'widget': TinyMCE()},
-    }
+    # formfield_overrides = {
+    #     models.TextField: {'widget': TinyMCE()},
+    # }
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Profile)

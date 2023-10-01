@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from tinymce.models import HTMLField
+from ckeditor.fields import RichTextField
 
 
 STATUS = (
@@ -24,7 +25,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(Profile, on_delete= models.CASCADE,related_name='blog_posts')
     updated_on = models.DateTimeField(auto_now= True)
-    content = HTMLField()
+    content = RichTextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     image = models.ImageField(upload_to='images/')
