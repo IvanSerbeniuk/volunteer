@@ -24,3 +24,39 @@ def home(request):
 def team(request):
     is_team_page = True  
     return render(request, 'team.html', {'is_team_page':is_team_page})
+
+
+
+import json
+import liqpay
+from django.http import JsonResponse
+from .models import Donation
+
+liqpay_private_key = 'sandbox_997Trh625acVmzO9c2Syd5EGA7D31eTQDgfYuufG'
+public_key='sandbox_i97618994403'
+
+def liqpay_callback(request):
+    if request.method == 'POST':
+        data = request.POST.get('data')
+        signature = request.POST.get('signature')
+
+        # Проверка подписи LiqPay
+        liqpay_private_key = 'sandbox_997Trh625acVmzO9c2Syd5EGA7D31eTQDgfYuufG'
+        liqpay_obj = liqpay.LiqPay(public_key='sandbox_i97618994403', private_key=liqpay_private_key)
+        is_signature_valid = liqpay_obj.verify_signature(data, signature)
+
+        if is_signature_valid:
+            payment_data = json.loads(data)
+            name = payment_data.get('name') 
+            email = payment_data.get('email')  
+            amount = payment_data.get('options')
+
+            # Сохранение данных о пожертвовании в базе данных Django
+            donation = Donation(name=name, email=email, amount=amount)
+            donation.save()
+
+            return JsonResponse({'success': True})
+
+    return JsonResponse({'success': False})
+
+

@@ -328,12 +328,13 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="donate-form" id="donate-section">
-                            <form id="choiceForm">
+                            <form id="choiceForm" method="POST">
+                                {% csrf_token %}
                                 <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Name" required="required" />
+                                    <input type="text" class="form-control" name='name' placeholder="Name" required="required" />
                                 </div>
                                 <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
+                                    <input type="email" class="form-control" name='email' placeholder="Email" required="required" />
                                 </div>
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <label class="btn btn-custom active">
@@ -360,32 +361,41 @@
         <script>
             document.getElementById('choiceForm').addEventListener('submit', function(event) {
                 event.preventDefault(); // Остановить стандартное поведение формы
-    
-                // Получить выбранное значение
+            
                 var selectedOption = document.querySelector('input[name="options"]:checked');
-    
+                var name = document.querySelector('input[name="name"]').value;
+                var email = document.querySelector('input[name="email"]').value;
+            
                 if (selectedOption) {
-                    // Изменить адрес перенаправления в зависимости от выбора кнопки
-                    switch (selectedOption.value) {
-                        case '10':
-                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIxMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQv9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=Q61ZPWZRJjQi7j3pIhIdIz1GCs8=';
-                            break;
-                        case '20':
-                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIyMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstGD0LLQsNC90L3RjyIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k5NzYxODk5NDQwMyIsImxhbmd1YWdlIjoidWsifQ==&signature=7Af9fjtj04WElURRWSzoR81i21U=';
-                            break;
-                        case '30':
-                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIzMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=qLKWdo8qnBfdA3ha3hd7dfrw2Xw=';
-                            break;
-                        default:
-                            // По умолчанию перенаправление можно настроить на другую страницу
-                            window.location.href = 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIxMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQv9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=Q61ZPWZRJjQi7j3pIhIdIz1GCs8=';//
+                    var donationAmount = selectedOption.value;
+                    
+                    // Определите словарь с соответствующими ссылками для каждой суммы
+                    var donationLinks = {
+                        '10': 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIxMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQv9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=Q61ZPWZRJjQi7j3pIhIdIz1GCs8=',
+                        '20': 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIyMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstGD0LLQsNC90L3RjyIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k5NzYxODk5NDQwMyIsImxhbmd1YWdlIjoidWsifQ==&signature=7Af9fjtj04WElURRWSzoR81i21U=',
+                        '30': 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIzMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=qLKWdo8qnBfdA3ha3hd7dfrw2Xw='
+                        // Добавьте другие суммы и соответствующие им ссылки
+                    };
+            
+                    var donationLink = donationLinks[donationAmount];
+            
+                    if (donationLink) {
+                        // Перенаправить пользователя на ссылку для пожертвования
+                        window.location.href = donationLink;
+                    } else {
+                        // Обработка ошибки, если ссылка не найдена
+                        alert('Ссылка на пожертвование не найдена для выбранной суммы.');
                     }
                 }
             });
+            
         </script>
         <!-- Donate End -->
         
-        
+        var donationLinks = {
+            '10': 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIxMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQv9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=Q61ZPWZRJjQi7j3pIhIdIz1GCs8=',
+            '20': 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIyMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstGD0LLQsNC90L3RjyIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k5NzYxODk5NDQwMyIsImxhbmd1YWdlIjoidWsifQ==&signature=7Af9fjtj04WElURRWSzoR81i21U=',
+            '30': 'https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJhbW91bnQiOiIzMCIsImN1cnJlbmN5IjoiVVNEIiwiZGVzY3JpcHRpb24iOiLQn9C+0LbQtdGA0YLQstCwIiwicHVibGljX2tleSI6InNhbmRib3hfaTk3NjE4OTk0NDAzIiwibGFuZ3VhZ2UiOiJ1ayJ9&signature=qLKWdo8qnBfdA3ha3hd7dfrw2Xw='
 
 
         <!-- Team Start -->
