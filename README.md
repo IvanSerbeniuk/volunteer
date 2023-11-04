@@ -12,3 +12,5 @@ docker exec -it volunteer python manage.py migrate
 git tag -a v0.2.5 -m "my version v0.2.5"
 
 git push origin v0.2.4
+
+scp  -o StrictHostKeyChecking=no -r init-letsencrypt.sh ubuntu@IP:/home/ubuntu/app
