@@ -580,6 +580,10 @@
 
         <!-- Template Javascript -->
         <script src="{% static 'js/main.js' %}"></script>
+        <!-- Include the cookie modal here -->
+        {% include 'cookie_modal.html' %}
+          <!-- Custom JavaScript -->
+        {% block javascript %}{% endblock %}
 
     </body>
 </html>

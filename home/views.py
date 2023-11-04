@@ -24,3 +24,8 @@ def home(request):
 def team(request):
     is_team_page = True  
     return render(request, 'team.html', {'is_team_page':is_team_page})
+
+from django.shortcuts import redirect
+
+def external_privacy_policy(request):
+    return redirect("https://app.websitepolicies.com/policies/view/fqvst3db")
