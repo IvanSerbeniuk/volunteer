@@ -6,6 +6,7 @@ import mimetypes
 
 import django
 from django.utils.encoding import smart_str
+
 django.utils.encoding.smart_text = smart_str
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +31,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.71.152.186','volunteer.dm
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jazzmin', 
+    'jazzmin', 
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -275,8 +276,8 @@ TINYMCE_DEFAULT_CONFIG = {
 JAZZMIN_SETTINGS = {
     "site_title": "Vidguk Admin",
     "site_brand": "Vidguk Admin",
-    # "site_logo": "/img/logo_v.png",
-    # "login_logo": '/img/logo_v.png',
+    "site_logo": "/img/logo_v.png",
+    "login_logo": '/img/logo_v.png',
     "welcome_sign": "Вітаю в Vidguk",
     "topmenu_links": [
         # Url that gets reversed (Permissions can be added)
