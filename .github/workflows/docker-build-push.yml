@@ -161,4 +161,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no ubuntu@$IP whoami
           scp -o StrictHostKeyChecking=no -r ./docker-compose.yaml ubuntu@$IP:/home/ubuntu/app
           ssh -o StrictHostKeyChecking=no ubuntu@$IP 'docker-compose -f /home/ubuntu/app/docker-compose.yaml up --build -d'
-          docker system df -v
+          docker system df -v | tee df.txt
+          cat df.txt
