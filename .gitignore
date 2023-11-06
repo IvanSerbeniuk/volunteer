@@ -177,5 +177,9 @@ cython_debug/
 scripts
 tmp/
 
+<<<<<<< HEAD
 
 *.pyc
+=======
+*.pyc
+>>>>>>> master
