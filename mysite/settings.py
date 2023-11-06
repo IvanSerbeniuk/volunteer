@@ -2,7 +2,6 @@
 import os
 from pathlib import Path
 from decouple import config
-import mimetypes 
 
 import django
 from django.utils.encoding import smart_str
@@ -46,7 +45,7 @@ INSTALLED_APPS = [
     'tinymce',
     'storages',
     'ckeditor',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'django_extensions',
 ]
 
@@ -58,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -84,76 +83,76 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 INTERNAL_IPS = ('127.0.0.1', '0.0.0.0', 'localhost',)
 
-def show_toolbar(request):                                    
-    return True                                               
+# def show_toolbar(request):                                    
+#     return True                                               
 
-DEBUG_TOOLBAR_CONFIG = {                                      
-    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,                    
-}                                                             
+# DEBUG_TOOLBAR_CONFIG = {                                      
+#     "SHOW_TOOLBAR_CALLBACK" : show_toolbar,                    
+# }                                                             
 
-if DEBUG:                                                     
-    import mimetypes                                               
-    mimetypes.add_type("application/javascript", ".js", True) 
+# if DEBUG:                                                     
+#     import mimetypes                                               
+#     mimetypes.add_type("application/javascript", ".js", True) 
 
-DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
-    'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.logging.LoggingPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
-]
+# DEBUG_TOOLBAR_PANELS = [
+#     'debug_toolbar.panels.versions.VersionsPanel',
+#     'debug_toolbar.panels.timer.TimerPanel',
+#     'debug_toolbar.panels.settings.SettingsPanel',
+#     'debug_toolbar.panels.headers.HeadersPanel',
+#     'debug_toolbar.panels.request.RequestPanel',
+#     'debug_toolbar.panels.sql.SQLPanel',
+#     'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+#     'debug_toolbar.panels.templates.TemplatesPanel',
+#     'debug_toolbar.panels.cache.CachePanel',
+#     'debug_toolbar.panels.signals.SignalsPanel',
+#     'debug_toolbar.panels.logging.LoggingPanel',
+#     'debug_toolbar.panels.redirects.RedirectsPanel',
+# ]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config('POSTGRES_DB','postgres'),
-#         'USER': config('POSTGRES_USER','postgres'),
-#         'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
-#         'HOST': config('POSTGRES_HOST','localhost'),
-#         'PORT': config('POSTGRES_PORT', 5432)
-#      }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('POSTGRES_DB','postgres'),
+        'USER': config('POSTGRES_USER','postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
+        'HOST': config('POSTGRES_HOST','localhost'),
+        'PORT': config('POSTGRES_PORT', 5432)
+     }
+}
 
 
-# REDIS_HOST = config('REDIS_HOST', '127.0.0.1')
-# REDIS_PORT = config('REDIS_PORT', '6379')
+REDIS_HOST = config('REDIS_HOST', '127.0.0.1')
+REDIS_PORT = config('REDIS_PORT', '6379')
 
 ## Redis
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/0",
-#         "OPTIONS": {
-#             "db": 0,
-#             "parser_class": "redis.connection.PythonParser",
-#             "pool_class": "redis.BlockingConnectionPool",
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/0",
+        "OPTIONS": {
+            "db": 0,
+            "parser_class": "redis.connection.PythonParser",
+            "pool_class": "redis.BlockingConnectionPool",
     
-#         }
-#     }
-# }
+        }
+    }
+}
 
 # Cache time to live is 15 minutes.
 CACHE_TTL = 60 * 15
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 STATICFILES_DIRS = [BASE_DIR / "static"]  
 MEDIA_URL = '/media/'
@@ -172,21 +171,21 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
 
-# # aws settings
-# AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-# # s3 static settings
-# STATIC_LOCATION = 'static'
-# AWS_LOCATION = 'static'
-# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# # s3 public media settings
-# PUBLIC_MEDIA_LOCATION = 'media'
-# MEDIA_URL  = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, PUBLIC_MEDIA_LOCATION)
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# aws settings
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# s3 static settings
+STATIC_LOCATION = 'static'
+AWS_LOCATION = 'static'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# s3 public media settings
+PUBLIC_MEDIA_LOCATION = 'media'
+MEDIA_URL  = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, PUBLIC_MEDIA_LOCATION)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Password validation
