@@ -33,11 +33,11 @@
         <!-- Page Header Start -->
         <div class="page-header">
             <div class="container">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-12">
                         <h2>Detail Page</h2>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- Page Header End -->
@@ -62,18 +62,18 @@
                         </div>
                         <div class="single-bio">
                             <div class="single-bio-img">
-                                <img src="{{ user.profile.image.url }}" />
+                                <img src="{{ post.author.image.url }}" />
                             </div>
                             <div class="single-bio-text">
-                                <h3>{{ post.author }}</h3>
+                                <h3>{{ post.author.name }}</h3>
                                 <p>
-                                    {{ user.profile.bio }}
+                                    {{ post.author.bio }}
                                 </p>
                             </div>
                         </div>
                         {% if post.tags.similar_objects|length > 1 %}
                             <div class="single-related">
-                                <h2>Related Post</h2>
+                                <h2>Схожі статті</h2>
                                 <div class="owl-carousel related-slider">
                                     {% for relatedpost in post.tags.similar_objects|slice:"0:4" %}
                                     <div class="post-item">
@@ -98,14 +98,14 @@
                             <div class="sidebar-widget">
                                 <div class="search-widget">
                                     <form action="{% url 'search_posts' %}">
-                                        <input class="form-control" type="text" name="q" placeholder="Search Keyword">
+                                        <input class="form-control" type="text" name="q" placeholder="Пошук">
                                         <button class="btn"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>
                             </div>
 
                             <div class="sidebar-widget">
-                                <h2 class="widget-title">Recent Post</h2>
+                                <h2 class="widget-title">Останні Публікації</h2>
                                 <div class="recent-post">
                                     {% for post in recent_posts %}
                                         <div class="post-item">
