@@ -156,8 +156,8 @@ jobs:
 
       - name: Update docker-compose
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@3.71.152.186 whoami
-          scp -o StrictHostKeyChecking=no -r ./docker-compose.yaml ubuntu@3.71.152.186:/home/ubuntu/app
-          ssh -o StrictHostKeyChecking=no ubuntu@3.71.152.186 'docker-compose -f /home/ubuntu/app/docker-compose.yaml up --build -d'
+          ssh -o StrictHostKeyChecking=no ubuntu@3.69.216.243 whoami
+          scp -o StrictHostKeyChecking=no -r ./docker-compose.yaml ubuntu@3.69.216.243:/home/ubuntu/app
+          ssh -o StrictHostKeyChecking=no ubuntu@3.69.216.243 'docker-compose -f /home/ubuntu/app/docker-compose.yaml up --build -d'
           docker images --format "table {{.Repository}}\t{{.Tag}}"
 
