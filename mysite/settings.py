@@ -111,23 +111,26 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
 ]
 
+# Database
+# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config('POSTGRES_DB','postgres'),
-#         'USER': config('POSTGRES_USER','postgres'),
-#         'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
-#         'HOST': config('POSTGRES_HOST','localhost'),
-#         'PORT': config('POSTGRES_PORT', 5432)
-#      }
-# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('POSTGRES_DB','postgres'),
+        'USER': config('POSTGRES_USER','postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
+        'HOST': config('POSTGRES_HOST','localhost'),
+        'PORT': config('POSTGRES_PORT', 5432)
+     }
+}
 
 
 REDIS_HOST = config('REDIS_HOST', '127.0.0.1')
 REDIS_PORT = config('REDIS_PORT', '6379')
 
-## Redis
+# ## Redis
 
 # CACHES = {
 #     "default": {
