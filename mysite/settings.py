@@ -113,46 +113,46 @@ DEBUG_TOOLBAR_PANELS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config('POSTGRES_DB','postgres'),
-#         'USER': config('POSTGRES_USER','postgres'),
-#         'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
-#         'HOST': config('POSTGRES_HOST','localhost'),
-#         'PORT': config('POSTGRES_PORT', 5432)
-#      }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('POSTGRES_DB','postgres'),
+        'USER': config('POSTGRES_USER','postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
+        'HOST': config('POSTGRES_HOST','localhost'),
+        'PORT': config('POSTGRES_PORT', 5432)
+     }
+}
 
 
-# REDIS_HOST = config('REDIS_HOST', '127.0.0.1')
-# REDIS_PORT = config('REDIS_PORT', '6379')
+REDIS_HOST = config('REDIS_HOST', '127.0.0.1')
+REDIS_PORT = config('REDIS_PORT', '6379')
 
-# ## Redis
+## Redis
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/0",
-#         "OPTIONS": {
-#             "db": 0,
-#             "parser_class": "redis.connection.PythonParser",
-#             "pool_class": "redis.BlockingConnectionPool",
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/0",
+        "OPTIONS": {
+            "db": 0,
+            "parser_class": "redis.connection.PythonParser",
+            "pool_class": "redis.BlockingConnectionPool",
     
-#         }
-#     }
-# }
+        }
+    }
+}
 
 # Cache time to live is 15 minutes.
 CACHE_TTL = 60 * 15
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 STATICFILES_DIRS = [BASE_DIR / "static"]  
 MEDIA_URL = '/media/'
