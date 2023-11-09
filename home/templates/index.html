@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -123,8 +124,8 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="section-header">
-                            <p>Трохи про наc</p>
-                            <h2>Що таке Відгук?</h2>
+                            <p>{% translate 'Трохи про нас' %}</p>
+                            <h2>{% translate 'Що таке Відгук?' %}</h2>
                         </div>
                         <div class="about-tab">
                             <ul class="nav nav-pills nav-justified">
@@ -147,11 +148,8 @@
                                 </div>
                                 <div id="tab-content-2" class="container tab-pane fade">
                                     
-                                    Мисія нашого християнського волонтерського фонду "Відгук" полягає в відданій службі громаді та глибокій співчутливості до ближнього. <br>
-                                    Ми об'єднуємо зусилля, щоб надавати допомогу переселенцям, людям з інвалідністю, багатодітним сім'ям, тим, хто потребує підтримки з опаленням та відбудовою домів у де-окупованих селах. <br>
-                                    Наша віра в Христа підкреслює нашу важливу цінність - любов до ближнього. 
-                                    Ми віддані створенню добра та сприяємо розвитку спільноти через щирість, честність та відкритість перед Богом. <br>
-                                    Наша місія - служити в ім'я гуманізму та спільної віри.
+                                    Наша місія бути відкритими до людей, відчувати та чути їх. <br>
+                                    Бачити тих, хто потребує допомогу.
                                 </div>
                                 <div id="tab-content-3" class="container tab-pane fade">
                                     Однією нашою головною цінністю є - взаємовідносини та довіра. <br>
@@ -520,57 +518,58 @@
                 <div class="owl-carousel testimonials-carousel">
                     <div class="testimonial-item">
                         <div class="testimonial-profile">
-                            <img src="{% static 'img/testimonial-1.jpg' %}" alt="Image">
+                            <img src="{% static 'img/1testimonial-1.jpg' %}" alt="Image">
                             <div class="testimonial-name">
-                                <h3>Person Name</h3>
-                                <p>Profession</p>
+                                <h3>Катя</h3>
+                                <p></p>
                             </div>
                         </div>
                         <div class="testimonial-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                                Щиро дякую за допомогу, яку ви нам надаєте в цей час
                             </p>
                         </div>
                     </div>
                     <div class="testimonial-item">
                         <div class="testimonial-profile">
-                            <img src="{% static 'img/testimonial-2.jpg' %}" alt="Image">
+                            <img src="{% static 'img/2testimonial-2.jpg' %}" alt="Image">
                             <div class="testimonial-name">
-                                <h3>Person Name</h3>
-                                <p>Profession</p>
+                                <h3>Ольга</h3>
+                                <p></p>
                             </div>
                         </div>
                         <div class="testimonial-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                                Велика вдячність, що нам здійснюють гуманітарну допомогу, у цей момент вона дуже нам потрібна 
                             </p>
                         </div>
                     </div>
                     <div class="testimonial-item">
                         <div class="testimonial-profile">
-                            <img src="{% static 'img/testimonial-3.jpg' %}" alt="Image">
+                            <img src="{% static 'img/3testimonial-3.jpg' %}" alt="Image">
                             <div class="testimonial-name">
-                                <h3>Person Name</h3>
-                                <p>Profession</p>
+                                <h3>Раїса</h3>
+                                <p></p>
                             </div>
                         </div>
                         <div class="testimonial-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                                Дякую благодійному фонду « Відгук», що у таку важку хвилину під час війни ви нам допомагаєте і підтримуєте 
                             </p>
                         </div>
                     </div>
                     <div class="testimonial-item">
                         <div class="testimonial-profile">
-                            <img src="{% static 'img/testimonial-4.jpg' %}" alt="Image">
+                            <img src="{% static 'img/4testimonial-4.jpg' %}" alt="Image">
                             <div class="testimonial-name">
-                                <h3>Person Name</h3>
+                                <h3>Ігор</h3>
                                 <p>Profession</p>
                             </div>
                         </div>
                         <div class="testimonial-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                                Отримали допомогу, дуже дякуємо. <br>
+                                Я з Херсону.Слава Україні 
                             </p>
                         </div>
                     </div>
