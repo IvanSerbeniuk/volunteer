@@ -1,17 +1,18 @@
+{% load i18n %}
 <!-- cookie_modal.html -->
 <div id="cookieModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">We value your privacy</h5>
+                <h5 class="modal-title">{% translate "Ми цінуємо вашу конфіденційність"% }</h5>
             </div>
             <div class="modal-body">
-                <p>We use cookies on this website to enhance your user experience. By clicking "I agree", you are giving your consent for us to set cookies.</p>
-                <p>For more information on what data is contained in the cookies, please see our <a href="/privacy-policy/" target="_blank">Privacy Policy</a> page.</p>
+                <p>{% translate "Ми використовуємо файли cookie на цьому веб-сайті для покращення взаємодії з користувачем. Натискаючи «Я згоден», ви даєте згоду на встановлення файлів cookie" %}</p>
+                <p>{% translate "Для отримання додаткової інформації про те, які дані містяться у файлах cookie, перегляньте нашу" %} <a href="/privacy-policy/" target="_blank">{% translate "Політику конфіденційності" %}</a></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="rejectCookies">I decline</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="acceptCookies">I agree</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="rejectCookies">{% translate "Я відмовляюся"% }</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="acceptCookies">{% translate "Я згоден"% }</button>
             </div>
         </div>
     </div>
