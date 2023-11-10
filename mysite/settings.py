@@ -2,6 +2,8 @@
 import os
 from pathlib import Path
 from decouple import config
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 import django
 from django.utils.encoding import smart_str
@@ -303,3 +305,22 @@ JAZZMIN_SETTINGS = {
     # "show_ui_builder": True,
     # "language_chooser": True,
 }
+
+sentry_sdk.init(
+    dsn="https://2ce82054ce9a13f35a9fe12cc1053c5c@o4506203313209344.ingest.sentry.io/4506203314520064",
+    integrations=[
+        DjangoIntegration(
+            transaction_style='url',
+            middleware_spans=True,
+            signals_spans=False,
+            cache_spans=False,
+        ),
+    ],
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
