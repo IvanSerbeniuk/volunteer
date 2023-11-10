@@ -19,7 +19,7 @@ def home(request):
     is_home_page = True  
     return render(request, 'home.html', {'events': events, 'recent_posts':recent_posts, 'is_home_page':is_home_page}, )#{'recent_posts': recent_posts}
 
-
+# 'events': events,
 
 def team(request):
     is_team_page = True  

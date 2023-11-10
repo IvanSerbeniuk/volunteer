@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.71.152.186','volunteer.dm
 # Application definition
 INSTALLED_APPS = [
     'jazzmin', 
+    'parler',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -302,4 +303,15 @@ JAZZMIN_SETTINGS = {
     # },
     # "show_ui_builder": True,
     # "language_chooser": True,
+}
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en',}, 
+        {'code': 'uk',}
+    ),
+    'default': {
+        'fallbacks': ['en'],
+        'hide_untranslated': False,
+    }
 }

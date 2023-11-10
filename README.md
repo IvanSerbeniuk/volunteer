@@ -14,3 +14,9 @@ git tag -a v0.2.5 -m "my version v0.2.5"
 git push origin v0.2.4
 
 scp  -o StrictHostKeyChecking=no -r init-letsencrypt.sh ubuntu@IP:/home/ubuntu/app
+
+python manage.py  compilemessages --ignore=env
+
+python manage.py loaddata app/fixtures/authors.json
+
+python manage.py dumpdata > db.json
