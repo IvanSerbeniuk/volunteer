@@ -13,7 +13,7 @@ django.utils.encoding.smart_text = smart_str
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+CSRF_TRUSTED_ORIGINS=['https://*.dmytroserbeniuk.uk']
 
 
 
