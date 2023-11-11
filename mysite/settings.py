@@ -287,8 +287,8 @@ TINYMCE_DEFAULT_CONFIG = {
 JAZZMIN_SETTINGS = {
     "site_title": "Vidguk Admin",
     "site_brand": "Vidguk Admin",
-    "site_logo": "/img/logo_v.png",
-    "login_logo": '/img/logo_v.png',
+    # "site_logo": "/img/logo_v.png",
+    # "login_logo": '/img/logo_v.png',
     "welcome_sign": "Вітаю в Vidguk",
     "topmenu_links": [
         # Url that gets reversed (Permissions can be added)
