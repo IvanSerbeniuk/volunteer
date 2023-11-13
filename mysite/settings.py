@@ -225,6 +225,10 @@ LANGUAGES = [
 
 TIME_ZONE = 'UTC'
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'blog', 'locale'),
+    os.path.join(BASE_DIR, 'home','locale'),
+)
 
 USE_I18N = True
 

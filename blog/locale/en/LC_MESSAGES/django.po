@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-11 17:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: blog/templates/blog.html:7 blog/templates/blog.html:49
+#: blog/templates/search_results.html:14
+msgid "Блог"
+msgstr "Blog"
+
+#: blog/templates/blogusy.html:9
+msgid "Наш Блог"
+msgstr "Our Blog"
+
+#: blog/templates/blogusy.html:10
+msgid "Останні новини та статті"
+msgstr "Latest news and articles"
+
+#: blog/templates/search_results.html:15
+msgid "Останні новини та статті безпосередньо з нашого блогу"
+msgstr "Latest news and articles directly from our blog"
+
+#: blog/templates/search_results.html:63
+msgid "Нічого не знайдено"
+msgstr "Nothing found"
+
+#: blog/templates/single_blogus.html:8
+msgid "Cтаття Вiдгукa"
+msgstr "Article of Vidguk"
+
+#: blog/templates/single_blogus.html:77
+msgid "Схожі статті"
+msgstr "Related articles"
+
+#: blog/templates/single_blogus.html:102
+msgid "Пошук"
+msgstr "Search"
+
+#: blog/templates/single_blogus.html:109
+msgid "Останні Публікації"
+msgstr "Latest Publications"

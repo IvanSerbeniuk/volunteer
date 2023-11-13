@@ -1,5 +1,6 @@
 {% extends 'blog.html' %}
 {% load static %}
+{% load i18n %}
 
     <!-- <h1>Результаты поиска</h1> -->
 
@@ -10,8 +11,8 @@
         <div class="blog">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Our Blog</p>
-                    <h2>Latest news & articles directly from our blog</h2>
+                    <p>{% translate "Блог" %}</p>
+                    <h2>{% translate "Останні новини та статті безпосередньо з нашого блогу" %}</h2>
                 </div>
             </div>
         </div>
@@ -59,7 +60,7 @@
                 </div>
             </div>
         {% else %}
-            <p class="no-results"> Nothing has found</p>
+            <p class="no-results"> {% translate "Нічого не знайдено" %}</p>
         {% endif %}
         {% endblock content %}
 
