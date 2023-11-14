@@ -27,7 +27,7 @@ services:
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"    
   volunteer:
 
-    image: serbenyuk/volunteer:v0.5.1
+    image: serbenyuk/volunteer:v0.5.2
     container_name: volunteer
     restart: unless-stopped
     env_file: .env
