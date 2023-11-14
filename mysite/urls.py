@@ -11,4 +11,5 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
     # path('events/', include('UpcomingEvents.urls')),
- ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+#  ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
