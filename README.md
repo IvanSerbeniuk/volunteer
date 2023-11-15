@@ -1,5 +1,6 @@
 [![volunteer](https://github.com/IvanSerbeniuk/volunteer/actions/workflows/docker-build-push.yml/badge.svg)](https://github.com/IvanSerbeniuk/volunteer/actions/workflows/docker-build-push.yml)
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/IvanSerbeniuk/volunteer/blob/master/LICENSE.md)
 
 loadtest -n 100 -k  http://localhost:8000/
 
