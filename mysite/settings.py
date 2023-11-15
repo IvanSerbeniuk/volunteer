@@ -28,7 +28,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.71.152.186','volunteer.dmytroserbeniuk.uk']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.69.216.243','volunteer.dmytroserbeniuk.uk']
 
 
 # Application definition
