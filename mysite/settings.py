@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'debug_toolbar',
     'django_extensions',
+    'rest_framework_swagger',
+    'rest_framework',             
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
