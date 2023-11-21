@@ -5,10 +5,10 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(volunteer.dmytroserbeniuk.uk)
+domains=(respondua.org)
 rsa_key_size=4096
 data_path="./docker/nginx/certbot"
-email="dserbenyukgood@gmail.com" # Adding a valid address is strongly recommended
+email="volunteervolunteer245@gmail.com" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
 if [ -d "$data_path" ]; then

@@ -13,7 +13,7 @@ django.utils.encoding.smart_text = smart_str
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-CSRF_TRUSTED_ORIGINS=['https://*.dmytroserbeniuk.uk']
+CSRF_TRUSTED_ORIGINS=['https://*.respondua.org']
 
 
 
@@ -28,7 +28,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.69.216.243','volunteer.dmytroserbeniuk.uk']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.69.216.243','respondua.org']
 
 
 # Application definition
