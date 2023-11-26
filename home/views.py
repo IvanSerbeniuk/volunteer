@@ -12,14 +12,15 @@ from blog.models import Post
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
-# @cache_page(CACHE_TTL)
+@cache_page(CACHE_TTL)
 def home(request):
     events = Event.objects.filter(date__gte=timezone.now()).order_by('date')
     recent_posts = Post.objects.all()[:3]
     is_home_page = True  
     return render(request, 'home.html', {'events': events, 'recent_posts':recent_posts, 'is_home_page':is_home_page}, )#{'recent_posts': recent_posts}
 
-# 'events': events,
+
+@cache_page(CACHE_TTL)
 
 def team(request):
     is_team_page = True  

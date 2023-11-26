@@ -13,7 +13,7 @@ django.utils.encoding.smart_text = smart_str
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+CSRF_TRUSTED_ORIGINS=['https://*.respondua.org']
 
 
 
@@ -28,7 +28,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.71.152.186','volunteer.dmytroserbeniuk.uk']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.69.216.243','respondua.org']
 
 
 # Application definition
@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'debug_toolbar',
     'django_extensions',
+    'rest_framework_swagger',
+    'rest_framework',             
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -148,8 +151,8 @@ DEBUG_TOOLBAR_PANELS = [
 #     }
 # }
 
-# Cache time to live is 15 minutes.
-CACHE_TTL = 60 * 15
+# Cache time to live is 3 minutes.
+CACHE_TTL = 60 * 3
 
 
 DATABASES = {
@@ -176,21 +179,16 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
 
-# # aws settings
-# AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-# AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-# # s3 static settings
-# STATIC_LOCATION = 'static'
-# AWS_LOCATION = 'static'
-# STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# # s3 public media settings
-# PUBLIC_MEDIA_LOCATION = 'media'
-# MEDIA_URL  = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, PUBLIC_MEDIA_LOCATION)
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# aws settings
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage' 
+AWS_S3_CUSTOM_DOMAIN = 'd20h3k8rvqrkq4.cloudfront.net'
+AWS_LOCATION = 'static'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
 
 
 # Password validation
@@ -292,8 +290,8 @@ TINYMCE_DEFAULT_CONFIG = {
 JAZZMIN_SETTINGS = {
     "site_title": "Vidguk Admin",
     "site_brand": "Vidguk Admin",
-    "site_logo": "/img/logo_v.png",
-    "login_logo": '/img/logo_v.png',
+    # "site_logo": "/img/logo_v.png",
+    # "login_logo": '/img/logo_v.png',
     "welcome_sign": "Вітаю в Vidguk",
     "topmenu_links": [
         # Url that gets reversed (Permissions can be added)
