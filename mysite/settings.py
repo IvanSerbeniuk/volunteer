@@ -2,8 +2,8 @@
 import os
 from pathlib import Path
 from decouple import config
-# import sentry_sdk
-# from sentry_sdk.integrations.django import DjangoIntegration
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 import django
 from django.utils.encoding import smart_str
@@ -121,46 +121,46 @@ DEBUG_TOOLBAR_PANELS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config('POSTGRES_DB','postgres'),
-#         'USER': config('POSTGRES_USER','postgres'),
-#         'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
-#         'HOST': config('POSTGRES_HOST','localhost'),
-#         'PORT': config('POSTGRES_PORT', 5432)
-#      }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('POSTGRES_DB','postgres'),
+        'USER': config('POSTGRES_USER','postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD','postgres'),
+        'HOST': config('POSTGRES_HOST','localhost'),
+        'PORT': config('POSTGRES_PORT', 5432)
+    }
+}
 
 
-# REDIS_HOST = config('REDIS_HOST', '127.0.0.1')
-# REDIS_PORT = config('REDIS_PORT', '6379')
+REDIS_HOST = config('REDIS_HOST', '127.0.0.1')
+REDIS_PORT = config('REDIS_PORT', '6379')
 
-## Redis
+# Redis
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/0",
-#         "OPTIONS": {
-#             "db": 0,
-#             "parser_class": "redis.connection.PythonParser",
-#             "pool_class": "redis.BlockingConnectionPool",
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/0",
+        "OPTIONS": {
+            "db": 0,
+            "parser_class": "redis.connection.PythonParser",
+            "pool_class": "redis.BlockingConnectionPool",
     
-#         }
-#     }
-# }
+        }
+    }
+}
 
 # Cache time to live is 3 minutes.
 CACHE_TTL = 60 * 3
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 STATICFILES_DIRS = [BASE_DIR / "static"]  
 MEDIA_URL = '/media/'
@@ -320,21 +320,21 @@ PARLER_LANGUAGES = {
     }
 }
 
-# sentry_sdk.init(
-#     dsn="https://2ce82054ce9a13f35a9fe12cc1053c5c@o4506203313209344.ingest.sentry.io/4506203314520064",
-#     integrations=[
-#         DjangoIntegration(
-#             transaction_style='url',
-#             middleware_spans=True,
-#             signals_spans=False,
-#             cache_spans=False,
-#         ),
-#     ],
-#     # Set traces_sample_rate to 1.0 to capture 100%
-#     # of transactions for performance monitoring.
-#     traces_sample_rate=1.0,
-#     # Set profiles_sample_rate to 1.0 to profile 100%
-#     # of sampled transactions.
-#     # We recommend adjusting this value in production.
-#     profiles_sample_rate=1.0,
-# )
+sentry_sdk.init(
+    dsn="https://2ce82054ce9a13f35a9fe12cc1053c5c@o4506203313209344.ingest.sentry.io/4506203314520064",
+    integrations=[
+        DjangoIntegration(
+            transaction_style='url',
+            middleware_spans=True,
+            signals_spans=False,
+            cache_spans=False,
+        ),
+    ],
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
