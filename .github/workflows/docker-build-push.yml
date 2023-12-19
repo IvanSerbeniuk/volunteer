@@ -85,7 +85,6 @@ jobs:
       - name: Add SHORT_SHA env property with commit short sha
         run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
 
-
       - name: Setup Repository
         env:
             GH_TOKEN: ${{ github.token }}
