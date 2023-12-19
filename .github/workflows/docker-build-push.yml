@@ -81,9 +81,37 @@ jobs:
           sudo mv yq_linux_amd64 /usr/local/bin/yq
           sudo chmod +x /usr/local/bin/yq
           yq e -i '.services.volunteer.image |= "${{ steps.meta.outputs.tags }}"' 'docker-compose.yaml'
-          
+
       - name: Add SHORT_SHA env property with commit short sha
         run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-7`" >> $GITHUB_ENV
+
+
+      - name: Setup Repository
+        env:
+            GH_TOKEN: ${{ github.token }}
+        working-directory: volunteer
+        run: |
+          git fetch origin main
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url --push origin https://github.com/IvanSerbeniuk/volunteer.git
+          git checkout -b release-${SHORT_SHA}
+
+      - name: Commit Release image
+        env:
+          GH_TOKEN: ${{ github.token }}
+        working-directory: volunteer
+        run: |
+          git add .
+          git commit -m "Release image for dev environment"
+          git push origin HEAD
+
+      - name: Create PR
+        working-directory: volunteer
+        run: |
+          gh pr create -B main -H release-${SHORT_SHA} -t "deploy-${SHORT_SHA}" -b ""
+        env:
+          GH_TOKEN: ${{ github.token }}
   # Migration-test-local:
   #   runs-on: ubuntu-latest
   #   name: Migration test local
