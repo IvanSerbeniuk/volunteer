@@ -88,7 +88,7 @@ jobs:
       - name: Setup Repository
         env:
             GH_TOKEN: ${{ github.token }}
-        working-directory: volunteer
+        working-directory: .
         run: |
           git fetch origin main
           git config --global user.name "github-actions[bot]"
@@ -99,14 +99,14 @@ jobs:
       - name: Commit Release image
         env:
           GH_TOKEN: ${{ github.token }}
-        working-directory: volunteer
+        working-directory: .
         run: |
           git add .
           git commit -m "Release image for dev environment"
           git push origin HEAD
 
       - name: Create PR
-        working-directory: volunteer
+        working-directory: .
         run: |
           gh pr create -B main -H release-${SHORT_SHA} -t "deploy-${SHORT_SHA}" -b ""
         env:
