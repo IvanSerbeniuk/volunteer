@@ -5,6 +5,15 @@ on:
     tags: [ "*" ]
   pull_request:
     branches: [ master ]
+
+permissions:
+  id-token: write
+  contents: write
+  actions: read
+  security-events: write
+  statuses: write
+  issues: write
+  pull-requests: write
     
 env:
   # Use docker.io for Docker Hub if empty
