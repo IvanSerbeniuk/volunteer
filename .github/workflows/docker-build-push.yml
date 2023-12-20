@@ -114,7 +114,7 @@ jobs:
       - name: Create PR
         working-directory: .
         run: |
-          gh pr create -B main -H release-${SHORT_SHA} -t "deploy-${SHORT_SHA}" -b ""
+          gh pr create -B master -H release-${SHORT_SHA} -t "deploy-${SHORT_SHA}" -b ""
         env:
           GH_TOKEN: ${{ github.token }}
   # Migration-test-local:
