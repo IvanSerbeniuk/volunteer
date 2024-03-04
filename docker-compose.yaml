@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   nginx: 
     restart: unless-stopped
@@ -26,8 +25,7 @@ services:
       - ./docker/nginx/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"    
   volunteer:
-
-    image: serbenyuk/volunteer:v0.5.8
+    image: serbenyuk/volunteer:v0.6.0
     container_name: volunteer
     restart: unless-stopped
     env_file: .env
@@ -38,7 +36,6 @@ services:
     depends_on:
       - postgres
       - redis  
-
   redis:
     image: redis:7.2.0-alpine3.18
     container_name: redis
@@ -48,7 +45,6 @@ services:
     hostname: redis    
     volumes:
       - redisdata:/data
-
   postgres:
     image: postgres:14
     container_name: postgres
