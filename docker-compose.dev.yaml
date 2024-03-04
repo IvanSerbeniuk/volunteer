@@ -29,14 +29,20 @@ services:
       - redis  
 
   redis:
-    image: redis:7.2.0-alpine3.18
+    # image: redis:7.2.0-alpine3.18
     container_name: redis
+    build: ./redis
     ports:
       - '6379:6379'
-    command: redis-server --save 20 1 --loglevel warning  
+    command: sh -c "./init.sh"
+    privileged: true
+    # command: ["redis-server", "--appendonly", "no", "--maxmemory", "500mb", "--maxmemory-policy", "allkeys-lru", "--daemonize", "yes"]
     hostname: redis    
     volumes:
       - redisdata:/data
+      - /proc/sys:/host_proc/sys:ro
+    cap_add:
+      - SYS_ADMIN
 
   postgres:
     image: postgres:14
