@@ -25,3 +25,8 @@ python manage.py  compilemessages --ignore=env
 python manage.py loaddata app/fixtures/authors.json
 
 python manage.py dumpdata > db.json
+
+netstat -an | grep 0.0.0.0:5432
+tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN
+
+ssh -N ubuntu@3.69.216.243 -L 1111:0.0.0.0:5432
