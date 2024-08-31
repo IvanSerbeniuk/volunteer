@@ -20,8 +20,14 @@ scp  -o StrictHostKeyChecking=no -r init-letsencrypt.sh ubuntu@IP:/home/ubuntu/a
 
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
-python manage.py  compilemessages --ignore=env
-
 python manage.py loaddata app/fixtures/authors.json
 
 python manage.py dumpdata > db.json
+
+python manage.py compilemessages --ignore=venv
+
+python ../manage.py makemessages -l en
+
+python manage.py runserver
+
+venv\Scripts\Activate

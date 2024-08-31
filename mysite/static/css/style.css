@@ -2159,3 +2159,7 @@ a:focus {
         text-align: center;
     }
 }
+
+.section-header .logoo{
+    width: 200px;
+}

@@ -24,7 +24,7 @@ CSRF_TRUSTED_ORIGINS=['https://*.respondua.org']
 SECRET_KEY = 'django-insecure-h$q6n=l#p&5vt8$49i9&rma5(l3)h-86e*go!g1eficj-nt(c1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 
@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1','localhost','3.69.216.243','respondua.or
 # Application definition
 INSTALLED_APPS = [
     'jazzmin', 
-    # 'parler',
+    'parler',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -151,7 +151,7 @@ DEBUG_TOOLBAR_PANELS = [
 #     }
 # }
 
-# Cache time to live is  3 minutes.
+# Cache time to live is 3 minutes.
 CACHE_TTL = 60 * 3
 
 
