@@ -16,6 +16,15 @@ git push origin v0.2.4
 
 scp  -o StrictHostKeyChecking=no -r init-letsencrypt.sh ubuntu@IP:/home/ubuntu/app
 
+VIRT env
+- source  venv/Scripts/activate
+usefull commands for django
+- python manage.py runserver
+- python manage.py migrate
+- python manage.py makemigrations
+- python manage.py createsuperuser
+- python manage.py collectstatic
+
 ## License
 
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).

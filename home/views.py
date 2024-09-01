@@ -21,7 +21,6 @@ def home(request):
 
 
 @cache_page(CACHE_TTL)
-
 def team(request):
     is_team_page = True  
     return render(request, 'team.html', {'is_team_page':is_team_page})
